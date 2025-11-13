@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warehouse Home</title>
+    <!-- Font Awesome cho icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Reset cơ bản */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #e6f2ff; /* màu xanh nhạt nền */
+            color: #003366; /* màu xanh đậm chữ */
+        }
+
+        /* Header */
+        header {
+            background-color: #0073e6; /* xanh chủ đạo */
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .side-bar-btn {
+            cursor: pointer;
+        }
+
+        .user-menu button {
+            background-color: white;
+            color: #0073e6;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .user-menu p {
+            margin: 0;
+        }
+
+        /* Side-bar */
+        .side-bar {
+            width: 250px;
+            height: 100vh;
+            background-color: #0059b3; /* xanh đậm */
+            position: fixed;
+            top: 0;
+            left: -250px; /* ẩn mặc định */
+            transition: 0.3s;
+            padding: 20px;
+            color: white;
+        }
+
+        .side-bar.active {
+            left: 0;
+        }
+
+        .side-bar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px 0;
+            font-weight: bold;
+        }
+
+        /* Nội dung chính */
+        .main-content {
+            margin-left: 0;
+            padding: 20px;
+            transition: 0.3s;
+        }
+
+        .side-bar.active ~ .main-content {
+            margin-left: 250px;
+        }
+
+        /* Modal */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #f1f1f1;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+        }
+
+        .close {
+            float: right;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .input-login {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn-login {
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-login:hover {
+            background-color: #0059b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header + Nav -->
+    <header>
+        <div class="side-bar-btn" id="menu-btn"> 
+            <i class="fa-solid fa-bars fa-lg"></i>
+        </div>
+        <p class="title"> THE WAREHOUSE CENTER </p>
+        <div class="user-menu">
+            <!-- Giả lập user -->
+            <div id="loginDiv">
+                <button class="header-btn" onclick="openLogin()">Đăng nhập</button>
+                <div id="loginModal"
