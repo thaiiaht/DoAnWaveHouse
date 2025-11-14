@@ -13,7 +13,13 @@ import { middleware } from './kernel.js'
 router.get('/', async ({ view, auth }) => {
     await auth.use('web').check()
     const user = auth.use('web').user
-    return view.render('home', { user})
+    return view.render('home', { user })
+}).use(middleware.optional())
+
+router.get('/admin', async ({ view, auth }) => {
+    await auth.use('web').check()
+    const user = auth.use('web').user
+    return view.render('management', { user })
 }).use(middleware.optional())
 
 router.post('/login', [AuthController, 'login'])

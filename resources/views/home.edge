@@ -75,24 +75,28 @@
                     </div>
                 </div>
             </div>
-        @endif
         </div>
     </nav>
+@endif
 {{-- side-bar --}}
 <div id="side-bar" class="side-bar">
+    @if(user?.role === 'admin')
+    <a class="sideBar-btn" href="/admin"> Employee management </a>
+    @endif
 </div>
+
 </header>
 <div class="container">
         <!-- Profile Block -->
         <div class="profile-block">
-            <div class="profile-avatar">NV</div>
+            <div class="profile-avatar">{{ user?.role ?? 'Hehehe'}}</div>
             <div class="profile-info">
-                <div class="profile-name">{{ user.fullName }}</div>
-                <div class="profile-role">{{ user.email }}</div>
+                <div class="profile-name">{{user?.fullName ?? 'Undefined'}}</div>
+                <div class="profile-role">{{ user?.email ?? 'None'}}</div>
                 <div class="profile-stats">
                     <div class="stat-item">
                         <span class="stat-value">Chức vụ</span>
-                        <span class="stat-label">Quản lý Kho</span>
+                        <span class="stat-label">{{ user?.role ?? 'None'}}</span>
                     </div>
                 </div>
             </div>
