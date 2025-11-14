@@ -6,11 +6,11 @@
     <title>Warehouse Home</title>
     <!-- Font Awesome cho icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    @vite('resources/css/home.css')
+    @vite(['resources/css/header.css', 'resources/css/main.css'])
     @vite('resources/js/home.js')
 </head>
 <body>
-    <header>
+<header>
     <nav>
         <div class="side-bar-btn" id="menu-btn"> 
             <i class="fa-solid fa-bars fa-lg"></i>
@@ -78,8 +78,117 @@
         @endif
         </div>
     </nav>
-</header>
-
 {{-- side-bar --}}
-    <div id="side-bar" class="side-bar">
-    </div>
+<div id="side-bar" class="side-bar">
+</div>
+</header>
+<div class="container">
+        <!-- Profile Block -->
+        <div class="profile-block">
+            <div class="profile-avatar">NV</div>
+            <div class="profile-info">
+                <div class="profile-name">{{ user.fullName }}</div>
+                <div class="profile-role">{{ user.email }}</div>
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">Chức vụ</span>
+                        <span class="stat-label">Quản lý Kho</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Warehouse Grid -->
+        <div class="warehouse-grid">
+            <!-- Kho 1 -->
+            <div class="warehouse-card">
+                <div class="warehouse-icon">
+                    <i class="fa-solid fa-warehouse fa-xl"></i>
+                </div>
+                <div class="warehouse-name">Kho A</div>
+                <div class="warehouse-info">
+                    <div class="info-row">
+                        <span class="info-label">Diện tích:</span>
+                        <span class="info-value">500m²</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Sản phẩm:</span>
+                        <span class="info-value">456 items</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Công suất:</span>
+                        <span class="info-value">85%</span>
+                    </div>
+                </div>
+                <div class="warehouse-status status-active">Hoạt động</div>
+            </div>
+
+            <div class="warehouse-card">
+                <div class="warehouse-icon">
+                    <i class="fa-solid fa-warehouse fa-xl"></i>
+                </div>
+                <div class="warehouse-name">Kho B</div>
+                <div class="warehouse-info">
+                    <div class="info-row">
+                        <span class="info-label">Diện tích:</span>
+                        <span class="info-value">300m²</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Sản phẩm:</span>
+                        <span class="info-value">298 items</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Công suất:</span>
+                        <span class="info-value">92%</span>
+                    </div>
+                </div>
+                <div class="warehouse-status status-warning">Gần đầy</div>
+            </div>
+
+            <!-- Kho 3 -->
+            <div class="warehouse-card">
+                <div class="warehouse-icon">
+                    <i class="fa-solid fa-warehouse fa-xl"></i>
+                </div>
+                <div class="warehouse-name">Kho C</div>
+                <div class="warehouse-info">
+                    <div class="info-row">
+                        <span class="info-label">Diện tích:</span>
+                        <span class="info-value">400m²</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Sản phẩm:</span>
+                        <span class="info-value">312 items</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Công suất:</span>
+                        <span class="info-value">78%</span>
+                    </div>
+                </div>
+                <div class="warehouse-status status-active">Hoạt động tốt</div>
+            </div>
+
+            <!-- Kho 4 -->
+            <div class="warehouse-card">
+                <div class="warehouse-icon">
+                    <i class="fa-solid fa-warehouse fa-xl"></i>
+                </div>
+                <div class="warehouse-name">Kho D</div>
+                <div class="warehouse-info">
+                    <div class="info-row">
+                        <span class="info-label">Diện tích:</span>
+                        <span class="info-value">350m²</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Sản phẩm:</span>
+                        <span class="info-value">168 items</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Công suất:</span>
+                        <span class="info-value">48%</span>
+                    </div>
+                </div>
+                <div class="warehouse-status status-active">Hoạt động tốt</div>
+            </div>
+        </div>
+</div>
