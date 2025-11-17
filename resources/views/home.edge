@@ -81,7 +81,7 @@
 {{-- side-bar --}}
 <div id="side-bar" class="side-bar">
     @if(user?.role === 'admin')
-    <a class="sideBar-btn" href="/admin"> Employee management </a>
+    <a class="sideBar-btn" href="{{ route('admin.index') }}"> Employee management </a>
     @endif
 </div>
 

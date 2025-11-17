@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Nhân viên</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    @vite('resources/css/admin.css')
+    @vite(['resources/js/admin.js'])
+</head>
+<body>
+    <div class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="page-title">
+                <i class="fa-solid fa-users"></i>
+                Quản lý Nhân viên
+            </h1>
+        </div>
+        <a href="/" class="back-home-btn">
+                <i class="fa-solid fa-house"></i>
+                Back Home
+        </a>
+        <!-- Employee Table -->
+        <div class="employee-table">
+            <table id="employeeTable">
+                <thead>
+                    <tr>
+                        <th>Nhân viên</th>
+                        <th>Email</th>
+                        <th>Ngày tham gia</th>
+                        <th>Chức vụ</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                @each(users in user)
+                <tbody >
+                        <td>{{ users.fullName }}</td>
+                        <td>{{ users.email }}</td>
+                        <td>{{ users.createdAt.toFormat('dd/MM/yyyy') }}</td>
+                        <td>
+                            <div class="role-action-column">
+                                <select class="role-select" onchange="updateRole(this.value, '{{ users.id }}')">
+                                    <option value="staff" {{ users.role === 'staff' ? 'selected' : '' }}>staff</option>
+                                    <option value="admin" {{ users.role === 'admin' ? 'selected' : '' }}>Admin</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="actions-container">
+                                <button class="delete-btn" onclick="deleteUser('{{ users.id }}')">Xóa</button>
+                            </div>
+                        </td>
+                </tbody>
+                 @end
+            </table>
+        </div>
+    </div>
+</body>
+</html>
