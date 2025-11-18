@@ -1,10 +1,13 @@
 
-
+import transmit from '@adonisjs/transmit/services/main'
 import router from '@adonisjs/core/services/router'
 import AuthController from '#controllers/auth_controller'
 import { middleware } from './kernel.js'
 
 import '#start/routes/admin'
+import '#start/routes/warehouse'
+
+transmit.registerRoutes()
 
 router.get('/', async ({ view, auth }) => {
     await auth.use('web').check()

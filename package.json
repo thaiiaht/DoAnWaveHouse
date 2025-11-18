@@ -65,6 +65,8 @@
     "@adonisjs/session": "^7.5.1",
     "@adonisjs/shield": "^8.2.0",
     "@adonisjs/static": "^1.1.1",
+    "@adonisjs/transmit": "^2.0.2",
+    "@adonisjs/transmit-client": "^1.0.0",
     "@adonisjs/vite": "^4.0.0",
     "@vinejs/vine": "^3.0.1",
     "adonis-lucid-soft-deletes": "^2.1.0",
@@ -77,6 +79,7 @@
     "reflect-metadata": "^0.2.2",
     "slugify": "^1.6.6",
     "tailwindcss": "^4.1.11",
+    "toastr": "^2.1.4",
     "uuid": "^11.1.0"
   },
   "hotHook": {

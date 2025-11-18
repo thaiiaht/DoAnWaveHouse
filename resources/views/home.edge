@@ -6,8 +6,10 @@
     <title>Warehouse Home</title>
     <!-- Font Awesome cho icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     @vite(['resources/css/header.css', 'resources/css/main.css'])
-    @vite('resources/js/home.js')
+    @vite(['resources/js/home.js', 'resources/js/app.js'])
 </head>
 <body>
 <header>
@@ -84,6 +86,18 @@
     <a class="sideBar-btn" href="{{ route('admin.index') }}"> Employee management </a>
     @endif
 </div>
+
+<div id="notification">
+        <script>
+           if (!window.toastShown) { // chỉ chạy nếu chưa toast
+            window.toastShown = true;
+            toastr.options = {
+                closeButton: true,
+                progressBar: true,
+                timeOut: "3000"
+            };
+        }
+        </script>
 
 </header>
 <div class="container">

@@ -2,21 +2,15 @@ import { BaseModel, beforeCreate, column } from '@adonisjs/lucid/orm'
 import { DateTime } from 'luxon'
 import { v4 as uuidv4 } from 'uuid'
 
-export default class Kiot extends BaseModel {
+export default class DeliveryLog extends BaseModel {
   @column({ isPrimary: true })
   declare id: string
 
   @column()
-  declare kiotName: string
+  declare kiot: string
 
   @column()
-  declare capacity: number
-
-  @column()
-  declare currentQuantity: number
-
-  @column()
-  declare availableSpace: number
+  declare quantity: string
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime | null
@@ -25,7 +19,7 @@ export default class Kiot extends BaseModel {
   declare updatedAt: DateTime | null
 
   @beforeCreate()
-  public static assignUuid( kiot: Kiot) {
-    kiot.id = uuidv4()
+  public static assignUuid( delivery_log: DeliveryLog){
+    delivery_log.id = uuidv4()
   }
 }
