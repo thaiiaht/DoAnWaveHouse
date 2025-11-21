@@ -278,6 +278,7 @@ label {
     background-color: #1e3a8a;
     font-size: 14px;
     margin: 15px 0;
+    text-decoration: none;
 }
 
 .sideBar-btn:hover {
